@@ -1,0 +1,372 @@
+﻿@model List<Survey.Models.BigModel>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int k = 0;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Create new online survey</h3>
+                </div>
+                <!--begin::Form-->
+                <form>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>
+                                Name
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input id="survey-name" type="text" class="form-control" placeholder="Enter survey name">
+                        </div>
+
+                        <div class="form-group mb-1">
+                            <label for="exampleTextarea">
+                                Description
+                                <span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control" id="survey-description" rows="3"></textarea>
+                        </div>
+                        <!--begin: Code-->
+
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row" id="list-question">
+        <div class="col-md-12 question-detail" id="question1">
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+
+                    <h3 class="card-title">Question 1</h3>
+                </div>
+                <!--begin::Form-->
+                <form>
+
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label>
+                                Title
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control title-question" placeholder="Enter question name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect1">
+                                Question type
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-control type-question">
+                                <option value="">---Please choose type of question---</option>
+                                <option value="0">Yes no question</option>
+                                <option value="1">Choose 1 answer</option>
+                                <option value="2">Choose many answer</option>
+                                <option value="3">Choose 1 (have other answer)</option>
+                                <option value="4">Essay question</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label for="exampleTextarea">
+                                Description
+                                <span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control des-question" rows="3"></textarea>
+                        </div>
+                        <!--begin: Code-->
+                        <div class="form-group mb-1">
+
+                            <div class="mt-2 text-right">
+                                <a href="#" class="flaticon-add-circular-button icon-md mr-3 add-more-answer">Add answer</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <!--end::Form-->
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a href="" class="flaticon2-plus icon-md mr-5" id="add-more-question">Add more question</a>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-right">
+            <button type="reset" class="btn btn-primary mr-2 " id="btnSave">Submit</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script language="javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            var count = 1;
+            $("#add-more-question").click(function (e) {
+                e.preventDefault();
+                count++;
+                $("#list-question").append(`
+                                        <div class="col-md-12 question-detail" id="question${count}">
+                                            <!--begin::Card-->
+                                            <div class="card card-custom gutter-b example example-compact">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Question ${count}</h3>
+                                                </div>
+                                                <!--begin::Form-->
+                                                <form>
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Title
+                                                                <span class="text-danger">*</span>
+                                                            </label>
+                                                            <input type="text" class="form-control title-question" placeholder="Enter question name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleSelect1">
+                                                                Question type
+                                                                <span class="text-danger">*</span>
+                                                            </label>
+                                                            <select class="form-control type-question">
+                                    <option value="">---Please choose type of question---</option>
+                                    <option value="0">Yes no question</option>
+                                    <option value="1">Choose 1 answer</option>
+                                    <option value="2">Choose many answer</option>
+                                    <option value="3">Choose 1 (have other answer)</option>
+                                    <option value="4">Essay question</option>
+                                </select>
+                                        </div>
+                                        <div class="form-group mb-1">
+                                            <label for="exampleTextarea">
+                                                Description
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <textarea class="form-control des-question" rows="3"></textarea>
+                                                        </div>
+                                                        <!--begin: Code-->
+                                                        <div class="form-group mb-1">
+                                                            <div class="mt-2 text-right">
+                                                                <a href="#" class="mr-3 add-more-answer">Add answer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                                <!--end::Form-->
+                                            </div>
+                                        </div>
+                                    `);
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+            });
+
+            $("body").on("click", ".add-more-answer", function (e) {
+                e.preventDefault();
+                var typeQuest = $(this).parent().parent().parent().find(".type-question").val();
+                if (typeQuest == 4) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Essay question could not add answer',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                } else if (typeQuest == 0) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'This question have 2 default answers: Yes and No',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                } else {
+                    var nearestFormGroup = $(this).parent().parent();
+                    var tableAnswerLength = nearestFormGroup.find("table tbody").length;
+                    if (tableAnswerLength == 0) {
+                        nearestFormGroup.prepend(`
+                                            <table class="table answer-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="w-25" scope="col">Number</th>
+                                                        <th scope="col">Answer Content</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        `);
+                    }
+                    var tableBody = nearestFormGroup.find("table tbody");
+                    tableBody.append(`
+                                         <tr>
+                                            <th scope="row"></th>
+                                            <td>
+                                                <input type="text" class="form-control w-75"/>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="flaticon2-check-mark mr-3 save-answer">Save</a>
+                                                <a href="#" class="flaticon-delete remove-answer">Delete</a>
+                                            </td>
+                                        </tr>
+                                    `);
+                }
+
+            });
+            // function click delete answe
+            $("body").on("click", ".remove-answer", function (e) {
+                e.preventDefault();
+                $(this).parent().parent().remove();
+                // dem lai so luong cau hoi, update stt.
+
+            });
+
+            // function click save answer
+            $("body").on("click", ".save-answer", function (e) {
+                e.preventDefault();
+                var tr = $(this).parent().parent();
+                var countTr = tr.parent().find("tr").length; // tinh so tr cua table gan nhat
+                var inputVal = tr.find("input").val();
+                tr.html(`
+                                            <th scope="row">${countTr}</th>
+                                            <td class ="answer-content">
+                                                ${inputVal}
+                                            </td>
+                                            <td>
+                                                <a href="#" class="flaticon2-check-mark mr-3 save-answer">Save</a>
+                                                <a href="#" class="flaticon-delete remove-answer">Delete</a>
+                                            </td>
+                                    `);
+            });
+
+
+            //function click submit
+            $("body").on("click", "#btnSave", function () {
+                var allSurveys = new Array();
+                var questions = new Array();
+
+
+                var allSurvey = {}; // create surver
+                allSurvey.Title = $("#survey-name").val();
+                allSurvey.Description = $("#survey-description").val();
+                allSurveys.push(allSurvey);
+
+
+                //var listQuestion = $(".question-detail");
+                //console.log(listQuestion.length);
+
+
+                $scanQuestion = $("#list-question").find(".question-detail");
+                $scanCountQuestion = $("#list-question").find(".col-md-12").length;
+
+                $scanQuestionTitle = $scanQuestion.parent().parent().find(".title-question").length;
+
+                //$scanAnswers = $("#question1").parent().find(".answer-content");
+                //console.log($scanAnswers);
+
+
+                for (var i = 0; i < $scanQuestionTitle; i++) { // create question
+                    var question = {};
+                    question.Title = $scanQuestion.parent().parent().find(".title-question").eq(i).val();
+                    question.Type = $scanQuestion.parent().parent().find(".type-question").eq(i).val();
+                    question.Description = $scanQuestion.parent().parent().find(".des-question").eq(i).val();
+                    questions.push(question);
+                }
+
+
+                //for (var j = 0; j < $scanQuestionTitle; j++) {// create answer
+                //    var answer = {};
+                //    answer.Answer = $scanQuestion.parent().parent().find(".answer-content").eq(j).text();
+                //    answers.push(answer);
+                //}
+
+                //$(".question-detail").each(function () {
+                //    var title = $(this).find("h3.card-title").text();
+                //    $(this).find(".answer-table .answer-content").each(function () {
+                //        var answer = {};
+                //        answer.Title = title;
+                //        answer.Answer = $(this).text().trim();
+                //        answers.push(answer);
+                //    });
+                //});
+                //console.log(answers);
+
+
+                //var bigModels = { // model
+                //    "AllSurvey": allSurveys,
+                //    "Question": questions,
+                //    "QaTemps": answers,
+                //};
+                //console.log(bigModels);
+                var answers = new Array();
+                $(".question-detail").each(function () {
+                    //var ass = $(this).find("h3.card-title").text();
+                    var ass = $(this).find(".card-body .title-question").val();
+                    console.log($(this).find(".card-body .type-question").val());
+                    var typeQuest = $(this).find(".card-body .type-question").val();
+                    if (typeQuest == 0) {
+                        var answer1 = {};
+                        answer1.Title = ass;
+                        answer1.Answer = "Yes";
+                        answers.push(answer1);
+                        var answer2 = {};
+                        answer2.Title = ass;
+                        answer2.Answer = "No";
+                        answers.push(answer2);
+                    } else {
+                        $(this).find(".answer-table .answer-content").each(function () {
+                            var answer = {};
+                            answer.Title = ass;
+                            answer.Answer = $(this).text().trim();
+                            answers.push(answer);
+                        });
+                    }
+                });
+                
+
+
+                var bigModels = { // model
+                    "AllSurvey": allSurveys,
+                    "Question": questions,
+                    "QaTemps": answers,
+                };
+                console.log(bigModels);
+                $.ajax({
+                    type: "POST",
+                    url: "/QuestionAnswers/Create",
+                    data: JSON.stringify(bigModels),
+                    //data: JSON.stringify(questions),
+                    contentType: "application/json; charset=utf-8",
+                    success: function () {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Add survey success',
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        location.reload();
+                    },
+                    error: function () {
+
+                    }
+                });
+                
+            });
+        });
+    </script>
+
+}

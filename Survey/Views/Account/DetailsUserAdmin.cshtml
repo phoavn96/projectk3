@@ -1,0 +1,136 @@
+﻿@model Survey.Models.ApplicationUser
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+@{
+    ViewBag.Title = "DetailsUserAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+}
+
+<h2>DetailsUserAdmin</h2>
+
+<style>
+    dt {
+        font-weight: 900;
+    }
+</style>
+<div>
+    <h4>ApplicationUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PasswordHash)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessFailedCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccessFailedCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RollNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RollNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateJoin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateJoin)
+        </dd>
+        <dt>
+            Role
+        </dt>
+        <dd>
+            @userManager.GetRoles(Model.Id)[0]
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditUserAdmin", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ListUser")
+</p>

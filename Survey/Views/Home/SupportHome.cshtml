@@ -1,0 +1,186 @@
+﻿@model IEnumerable<Survey.Models.Support>
+
+@{
+    ViewBag.Title = "SupportHome";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact V17</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/assets/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    <section id="intro" style="height : 70px">
+        <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
+            @*<h1 class="mb-4 pb-0">The <span>Evironment</span><br>Survey</h1>
+                <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+                <a href="https://www.youtube.com/watch?v=X2YgM1Zw4_E&ab_channel=SmileandLearn-English" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+                <a href="#about" class="about-btn scrollto">About The Event</a>*@
+        </div>
+    </section><!-- End Intro Section -->
+    <br />
+    <br />
+    <br />
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Support information </h2>
+            <p>Freequently Asked Question</p>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="container-contact100" style="width 800px">
+                <div class="wrap-contact100">
+                    <form class="contact100-form validate-form">
+                        <span class="contact100-form-title">
+
+                        </span>
+
+                        <label class="label-input100" for="Name" style="color : black ">Name : @Html.DisplayFor(modelItem => item.Name)</label>
+                        <div class="wrap-input100 validate-input">
+
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Name)</span>
+                        </div>
+
+                        <label class="label-input100" for="Email" style="color : black">Email: @Html.DisplayFor(modelItem => item.Email)</label>
+                        <div class="wrap-input100 validate-input">
+
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Email)</span>
+                        </div>
+
+                        <label class="label-input100" for="phone" style="color : black">Phone: @Html.DisplayFor(modelItem => item.Mobile)</label>
+                        <div class="wrap-input100">
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
+                        </div>
+
+                        <label class="label-input100" for="Description" style="color : black">Description: @Html.DisplayFor(modelItem => item.Description)</label>
+                        <div class="wrap-input100 validate-input">
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
+                        </div>
+
+                    </form>
+
+                    <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+                        <div class="flex-w size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-map-marker"></span>
+                            </div>
+
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Address
+                                </span>
+
+                                <span class="txt2">
+                                    8 Ton That Thuyet, My Dinh, Ha Noi
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-phone-handset"></span>
+                            </div>
+
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Lets Talk
+                                </span>
+
+                                <span class="txt3">
+                                    +(84) 842 938 683
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-envelope"></span>
+                            </div>
+
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    General Support
+                                </span>
+
+                                <span class="txt3">
+                                    e-project@gmail.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script>
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/js/main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+</body>
+</html>
+
+<style>
+    h1{
+        text-align:center
+    }
+</style>

@@ -1,0 +1,348 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+
+}
+
+
+<main id="main">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="~/asset/image/png" sizes="16x16" href="~/asset/plugins/images/favicon.png">
+        <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="~/asset/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Menu CSS -->
+        <link href="~/asset/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+        <!-- toast CSS -->
+        <link href="~/asset/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <!-- morris CSS -->
+        <link href="~/asset/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+        <!-- chartist CSS -->
+        <link href="~/asset/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+        <link href="~/asset/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+        <!-- animation CSS -->
+        <link href="~/asset/css/animate.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="~/asset/css/style.css" rel="stylesheet">
+        <!-- color CSS -->
+        <link href="~/asset/css/colors/default.css" id="theme" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="~/asset/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/asset/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Menu Plugin JavaScript -->
+        <script src="~/asset/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <!--slimscroll JavaScript -->
+        <script src="~/asset/js/jquery.slimscroll.js"></script>
+        <!--Wave Effects -->
+        <script src="~/asset/js/waves.js"></script>
+        <!--Counter js -->
+        <script src="~/asset/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+        <script src="~/asset/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+        <!-- chartist chart -->
+        <script src="~/asset/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+        <script src="~/asset/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+        <!-- Sparkline chart JavaScript -->
+        <script src="~/asset/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="~/asset/js/custom.min.js"></script>
+        <script src="~/asset/js/dashboard1.js"></script>
+        <script src="~/asset/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+        <!--     Fonts and icons     -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <!-- CSS Files -->
+        <link href="~/asset/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/asset/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="~/asset/demo/demo.css" rel="stylesheet" />
+
+    </head>
+    <!-- ======= Intro Section ======= -->
+    <section id="intro">
+        <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
+            <h1 class="mb-4 pb-0">Environment <span>Survey</span><br></h1>
+            <p class="mb-4 pb-0">@ViewBag.NextSurvey.Title</p>
+            <a href="https://www.youtube.com/watch?v=X2YgM1Zw4_E&ab_channel=SmileandLearn-English" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <a href="#about" class="about-btn scrollto">The next Competition</a>
+        </div>
+    </section><!-- End Intro Section -->
+    <!-- ======= About Section ======= -->
+    <section id="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <h2>About The Competition</h2>
+                    <h3>
+                        @ViewBag.NextSurvey.Title
+                    </h3>
+                    <p>
+                        @ViewBag.NextSurvey.Description
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h3>Where</h3>
+                    <p>Downtown Conference Center, New York</p>
+                </div>
+                <div class="col-lg-3">
+                    <h3>When</h3>
+                    <p>@ViewBag.NextSurvey.UpdateDate</p>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Section -->
+    <section id="faq">
+        <body class="fix-header" style="text-align:center">
+            <div class="container">
+                <br />
+                <br />
+                <div class="section-header">
+                    <h2>Survey</h2>
+                    <p>Statistical of Survey</p>
+                </div>
+                <div class="row bg-title">
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-5 col-md-4">
+                                        <div class="icon-big text-center icon-warning">
+                                            <i class="nc-icon nc-world-2 text-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-md-8">
+                                        <div class="numbers" style="text-align:center">
+                                            <p class="card-category">All Survey</p>
+                                            <p class="card-title">@ViewBag.AllSurvey<p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer ">
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-clock-o"></i>
+                                    Update Now
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-5 col-md-4">
+                                        <div class="icon-big text-center icon-warning">
+                                            <i class="nc-icon nc-check-2 text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-md-8">
+                                        <div class="numbers" style="text-align:center">
+                                            <p class="card-category">All Survey Complete</p>
+                                            <p class="card-title">@ViewBag.AllSurveyComplete<p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer ">
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-clock-o"></i>
+                                    Update Now
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-5 col-md-4">
+                                        <div class="icon-big text-center icon-warning">
+                                            <i class="nc-icon nc-trophy text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 col-md-8">
+                                        <div class="numbers" style="text-align:center">
+                                            <p class="card-category">Survey Paticipated</p>
+                                            <p class="card-title">@ViewBag.AllSurveyAnswered<p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer ">
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-clock-o"></i>
+                                    Update Now
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </section>
+    <!-- ======= Speakers Section ======= -->
+    <section id="speakers">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Winner of Previous Competition</h2>
+                <p>List of award winners</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+                        <img src="~/asset/img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="#">Brenden Legros</a></h3>
+                            <p>Quas alias incidunt</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+                        <img src="~/asset/img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="#">Hubert Hirthe</a></h3>
+                            <p>Consequuntur odio aut</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+                        <img src="~/asset/img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="#">Cole Emmerich</a></h3>
+                            <p>Fugiat laborum et</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+                        <img src="~/asset/img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="#">Jack Christiansen</a></h3>
+                            <p>Debitis iure vero</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+                        <img src="~/asset/img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="#">Alejandrin Littel</a></h3>
+                            <p>Qui molestiae natus</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+                        <img src="~/asset/img/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="#">Willow Trantow</a></h3>
+                            <p>Non autem dicta</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Speakers Section -->
+    <section id="gallery">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>Gallery images of events</p>
+            </div>
+            <div class="owl-carousel gallery-carousel" data-aos="fade-up" data-aos-delay="100">
+                <a href="~/asset/img/environment/12.png " class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/12.png" alt=""></a>
+                <a href="~/asset/img/environment/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/1.jpg" alt=""></a>
+                <a href="~/asset/img/environment/19.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/19.png" alt=""></a>
+                <a href="~/asset/img/environment/23.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/23.jpg" alt=""></a>
+                <a href="~/asset/img/environment/4.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/4.png" alt=""></a>
+                <a href="~/asset/img/environment/40.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/40.png" alt=""></a>
+                <a href="~/asset/img/environment/30.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/30.png" alt=""></a>
+                <a href="~/asset/img/environment/20.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/20.png" alt=""></a>
+            </div>
+
+
+        </div>
+
+
+    </section><!-- End Contact Section -->
+
+
+    </html>
+<script src="~/asset/js/core/jquery.min.js"></script>
+<script src="~/asset/js/core/popper.min.js"></script>
+<script src="~/assetjs/core/bootstrap.min.js"></script>
+<script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="~/asset/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="~/asset/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/asset/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="~/asset/demo/demo.js"></script>
+<script>
+    $(document).ready(function () {
+        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+        demo.initChartsPages();
+    });
+</script>
+
+
+</main>

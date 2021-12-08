@@ -1,0 +1,195 @@
+﻿@using Survey.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+
+
+}
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Login</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assettt/img/favicon.png" rel="icon">
+    <link href="~/assettt/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assettt/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/assettt/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assettt/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: TheEvent - v2.3.1
+    * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+<link href="~/assets/css/StyleSheet1.css" rel="stylesheet" type="text/css" />
+<style>
+    #header {
+        background: rgba(6, 12, 34, 0.98);
+        height: 70px;
+        padding: 15px 0;
+        transition: all 0.5s;
+    }
+
+    body {
+        background-color: rgba(6, 12, 34, 0.98);
+        margin-top: 100px;
+    }
+
+    .login-block {
+        background: linear-gradient(to bottom, rgba(6, 12, 34, 0.98), rgba(6, 12, 34, 0.98));
+    }
+</style>
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
+            <a href="@Url.Action("Index", "Home")" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+        </div>
+
+        <nav id="nav-menu-container">
+
+
+            <ul class="nav-menu">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+
+                <li><a href="@Url.Action("faqhome", "Home")">FAQ</a></li>
+                <li><a href="@Url.Action("supporthome", "Home")">Support</a></li>
+
+            </ul>
+
+
+
+
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- End Header -->
+<body>
+    <main>
+        <section id="loginForm" class="login-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 login-sec">
+                        <h2 class="text-center" id="login-block">Login</h2>
+
+                        <section id="loginForm">
+
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.UserName, new { @for = "exampleInputEmail1", @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "text-uppercase" })
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control " })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                                        @Html.LabelFor(m => m.RememberMe, new { @class = "remember" })
+                                    </label>
+
+                                </div>
+                                <button id="login" type="submit" class="btn btn-dark">Login</button>
+
+
+                                <a id="register" class="btn btn-dark" href="~/Account/Register"> Register</a>
+                            }
+
+
+
+                        </section>
+
+
+                    </div>
+                    <div class="col-md-8 banner-sec">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <div class="banner-text">
+                                            <h2>Survey Evironment</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer id="footer" style="margin-top:100px;">
+        <div class="footer-top" style="background-color: rgba(6, 12, 34, 0.98);">
+            <div class="container" style="background-color: rgba(6, 12, 34, 0.98)">
+
+                <div class="row">
+
+
+
+
+
+
+                    <div class="col-lg-5 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            8 Ton That Thuyet
+                            My Dinh, Ha Noi,
+                            Viet Nam <br>
+                            <strong>Phone:</strong> +84 842 938 683<br>
+                            <strong>Email:</strong> locnxth1907005@fpt.edu.vn<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+</body>

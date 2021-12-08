@@ -1,0 +1,173 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Environment Survey</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assettt/img/favicon.png" rel="icon">
+    <link href="~/assettt/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assettt/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/assettt/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assettt/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: TheEvent - v2.3.1
+    * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
+                <a href="@Url.Action("Index", "Home")" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+            </div>
+
+            <nav id="nav-menu-container">
+
+                @using Microsoft.AspNet.Identity
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="~/Home/Index">Home</a></li>
+                    <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
+                    <li><a href="~/Home/faqhome">FAQ</a></li>
+                    <li><a href="~/Home/supporthome">Support</a></li>
+                    <li><a href="~/account/profile">Profile</a></li>
+                    <li class="buy-tickets">
+                        <a style="color:white">
+                            Hello  @User.Identity.GetUserName() !
+                        </a>
+
+                    </li>
+                    <li class="buy-tickets"><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+
+                </ul>
+
+                    }
+                }
+                else
+                {
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="~/Home/Index">Home</a></li>
+                        
+                        <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
+                        <li><a href="~/Home/faqhome">FAQ</a></li>
+                        <li><a href="~/Home/supporthome">Support</a></li>
+                        <li class="buy-tickets"><a href="~/account/login">Login/Register</a></li>
+                    </ul>
+                }
+
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Intro Section ======= -->
+    @RenderBody()
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <img src="~/asset/img/logo.png" alt="TheEvenet">
+                        <p>One of the first conditions of happiness is that the link between man and nature shall not be broken..</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/Index">Home</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/allsurveys/index">Survey</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/account/profile">Profile</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/faqhome">FAQ</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/supporthome">Support</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="col-lg-5 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            8 Ton That Thuyet
+                            My Dinh, Ha Noi,
+                            Viet Nam <br>
+                            <strong>Phone:</strong> +84 842 938 683<br>
+                            <strong>Email:</strong> locnxth1907005@fpt.edu.vn<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>TheSurvey</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+                -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/asset/vendor/jquery/jquery.min.js"></script>
+    <script src="~/asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/asset/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/asset/vendor/php-email-form/validate.js"></script>
+    <script src="~/asset/vendor/venobox/venobox.min.js"></script>
+    <script src="~/asset/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/asset/vendor/superfish/superfish.min.js"></script>
+    <script src="~/asset/vendor/hoverIntent/hoverIntent.js"></script>
+    <script src="~/asset/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/asset/js/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

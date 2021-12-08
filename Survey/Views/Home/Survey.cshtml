@@ -1,0 +1,287 @@
+﻿@model IEnumerable<Survey.Models.AllSurvey>
+
+@{
+    ViewBag.Title = "Survey";
+
+}
+@{
+    Layout = null;
+    var count = 0;
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>TheEvent Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assettt/img/favicon.png" rel="icon">
+    <link href="~/assettt/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assettt/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/assettt/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assettt/vendor/aos/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="~/assets/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+
+
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Page Vendors Styles(us   ed by this page)-->
+    <link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link href="~/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+    <!-- Template Main CSS File -->
+    <link href="~/assettt/css/style.css" rel="stylesheet">
+    <style>
+        #header {
+            background: rgba(6, 12, 34, 0.98);
+            height: 70px;
+            padding: 15px 0;
+            transition: all 0.5s;
+        }
+
+        .dataTables_wrapper .dataTable td, .dataTables_wrapper .dataTable th {
+            font-size: 14px;
+        }
+
+        .card.card-custom > .card-header .card-title, .card.card-custom > .card-header .card-title .card-label {
+            font-size: 20px;
+        }
+    </style>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/assets/css/StyleSheet2.css" rel="stylesheet">
+</head>
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
+            <a href="index.html" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+        </div>
+
+        <nav id="nav-menu-container">
+
+            @using Microsoft.AspNet.Identity
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <ul class="nav-menu">
+                        <li ><a href="~/Home/Index">Home</a></li>
+                        <li class="menu-active"><a href="#about">Survey</a></li>
+
+                        <li><a href="~/Home/faqhome">FAQ</a></li>
+                        <li><a href="~/Home/supporthome">Support</a></li>
+                        <li><a href="~/account/profile">Profile</a></li>
+                        <li class="buy-tickets">
+                            <a style="color:white">
+                                Hello  @User.Identity.GetUserName() !
+                            </a>
+
+                        </li>
+                        <li class="buy-tickets"><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+
+                    </ul>
+
+                }
+            }
+            else
+            {
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="~/Home/Index">Home</a></li>
+                    <li><a href="#about">Survey</a></li>
+
+                    <li><a href="~/Home/faqhome">FAQ</a></li>
+                    <li><a href="~/Home/supporthome">Support</a></li>
+                    <li class="buy-tickets"><a href="~/account/login">Login/Register</a></li>
+                </ul>
+            }
+
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- End Header -->
+<body>
+    <h2>Survey</h2>
+
+    <!--begin::Container-->
+    <!--begin::Notice-->
+    <!--end::Notice-->
+    <!--begin::Card-->
+    <!--begin: Datatable-->
+    <!--begin: Datatable-->
+
+
+
+
+
+    <table class="container" style="margin-top: 66px;margin-bottom:100px;color:white">
+
+        <thead>
+            <tr>
+                <th><h1>@Html.DisplayNameFor(model => model.Title)</h1></th>
+                <th><h1>@Html.DisplayNameFor(model => model.Description)</h1></th>
+                <th><h1>@Html.DisplayNameFor(model => model.Status)</h1></th>
+                <th><h1>Owner</h1></th>
+                <th><h1>Action</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td style="color:yellow"><span class="label label-lg font-weight-bold label-info label-inline">@Html.DisplayFor(modelItem => item.Status)!</span></td>
+                    <td>
+
+                        @ViewBag.AccStatus[count]
+
+                    </td>
+                    <td nowrap="nowrap">
+
+                        @if (item.Status.ToString() == "HAPPENNING" && ViewBag.AccStatus[count] != "Submitted!")
+                        {<span class="label label-lg font-weight-bold label-danger label-inline">
+
+                                @Html.ActionLink("Go survey !", "Details", new { id = item.SurveyId }, new { style = "color:white" })
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="label label-lg font-weight-bold label-danger label-inline">
+                                Survey Is done!
+                            </span>
+                        }
+
+                    </td>
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+
+
+
+
+    <!--end: Datatable-->
+    <!--end::Card-->
+    <!--end::Container-->
+
+
+
+    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="~/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="~/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Vendors(used by this page)-->
+    <!--end::Page Vendors-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="~/assets/js/pages/crud/datatables/basic/paginations.js"></script>
+</body>
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <img src="~/asset/img/logo.png" alt="TheEvenet">
+                    <p>One of the first conditions of happiness is that the link between man and nature shall not be broken..</p>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">Survey</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">Profile</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">FAQ</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-5 col-md-6 footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>
+                        8 Ton That Thuyet
+                        My Dinh, Ha Noi,
+                        Viet Nam <br>
+                        <strong>Phone:</strong> +84 842 938 683<br>
+                        <strong>Email:</strong> locnxth1907005@fpt.edu.vn<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>TheEvent</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+            -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
